@@ -28,6 +28,17 @@ namespace ContactManagerFinal
             this.place = place;
             this.state = state;
         }
-        
+
+        public Contact( string firstname, string lastname, string phonenumber, string username, string email, string place, string state)
+        {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.phonenumber = phonenumber;
+            this.username = username;
+            this.email = email;
+            this.place = place;
+            this.state = state;
+        }
+
     }
 }
