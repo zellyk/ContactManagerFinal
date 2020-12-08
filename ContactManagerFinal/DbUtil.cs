@@ -21,7 +21,7 @@ namespace ContactManagerFinal
         public List<Contact> GetAll()
         {
             List<Contact> listContacts = new List<Contact>();
-            var query = "SELECT * People INNER JOIN Emails ON (People.Domainid = Emails.Domainid);";
+            var query = "SELECT * FROM People INNER JOIN Emails ON (People.Domainid = Emails.Domainid);";
             var con = new SqlConnection(@"data source=localhost\SQLEXPRESS;database = CONTACTS;Trusted_Connection=True");
             SqlCommand cm = new SqlCommand(query, con);
             SqlDataReader sdr = cm.ExecuteReader();
