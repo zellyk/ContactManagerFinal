@@ -5,8 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactManagerFinal"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Karen the Contact Manager Specialist" Height="720" Width="1280">
+    <Grid Background="#44475a">
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <!-- Search -->
+        <Label x:Name="label_search" Content="Select Field" HorizontalAlignment="Left" Margin="58,39,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"  FontSize="16" Background="#00000000" Foreground="#FFBD93F9"/>
+        <ListBox x:Name="listBox_search" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="250" Margin="58,69,0,0" SelectionChanged="listBox_search_SelectionChanged" Background="#FFF8F8F2"/>
+
+        <Label x:Name="label_searchFor" Content="Search" HorizontalAlignment="Left" Margin="58,38,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial Black" FontSize="16" Grid.Column="1" Background="#00000000" Foreground="#FFBD93F9"/>
+        <TextBox x:Name="txt_search" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="58,69,0,0" TextWrapping="Wrap" Text="Search for" VerticalAlignment="Center" Width="250" Foreground="#FFFF79C6" Background="#FFF8F8F2" FontFamily="Arial"/>
+
+
+        <ListView x:Name="lv_contacts" HorizontalAlignment="Left" Height="342" Margin="60,52,0,0" Grid.Row="1" Grid.RowSpan="4" VerticalAlignment="Top" Width="1165" Grid.ColumnSpan="4" SelectionChanged="lv_contacts_SelectionChanged" Background="#FFF8F8F2" BorderBrush="{x:Null}">
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Header="ID">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ID}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="First name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding fn}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Last Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ln}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Email">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding email}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Phone Number">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding phone}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="btn_getContact" Content="Get Contact" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="78,69,0,0" VerticalAlignment="Top" Width="193" Click="Button_Click" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9"/>
+        <Button x:Name="btn_clearAll" Content="Clear All" Grid.Column="3" HorizontalAlignment="Left" Height="30" Margin="78,69,0,0" VerticalAlignment="Top" Width="193" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9" BorderBrush="{x:Null}"/>
+
+        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Height="30" Margin="78,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="127" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9" BorderBrush="{x:Null}"/>
+        <Button x:Name="btn_edit" Content="Edit Contact" HorizontalAlignment="Left" Height="30" Margin="78,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="127" Grid.Column="1" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9" BorderBrush="{x:Null}"/>
+        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Height="30" Margin="78,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="127" Grid.Column="2" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9" BorderBrush="{x:Null}"/>
+
+        <Label Content="First Name" HorizontalAlignment="Left" Height="24" Margin="78,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="99" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="78,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+        <Label Content="Last Name" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="97" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Grid.Column="1" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+        <Label Content="Email" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Grid.Column="3" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+        <Label Content="Phone" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Grid.Column="2" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+
+
     </Grid>
 </Window>
