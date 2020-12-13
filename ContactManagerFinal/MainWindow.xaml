@@ -49,7 +49,7 @@
                     <GridViewColumn Header="First name">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding fn}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding firstName}" FontWeight="Bold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -57,7 +57,7 @@
                     <GridViewColumn Header="Last Name">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ln}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding lastName}" FontWeight="Bold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -77,6 +77,31 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+
+                    <GridViewColumn Header="User name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding username}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Place">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding place}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="State">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding state}" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
                 </GridView>
             </ListView.View>
         </ListView>
@@ -88,14 +113,26 @@
         <Button x:Name="btn_edit" Content="Edit Contact" HorizontalAlignment="Left" Height="30" Margin="78,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="127" Grid.Column="1" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9" BorderBrush="{x:Null}"/>
         <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Height="30" Margin="78,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="127" Grid.Column="2" FontFamily="Arial Black" FontSize="14" Background="#FF6272A4" Foreground="#FFBD93F9" BorderBrush="{x:Null}"/>
 
-        <Label Content="First Name" HorizontalAlignment="Left" Height="24" Margin="78,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="99" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="78,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
-        <Label Content="Last Name" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="97" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Grid.Column="1" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
-        <Label Content="Email" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Grid.Column="3" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
-        <Label Content="Phone" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="179" Grid.Column="2" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+        <Label x:Name="label_firstName" Content="First Name" HorizontalAlignment="Left" Height="24" Margin="78,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="99" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txt_firstName" HorizontalAlignment="Left" Height="24" Margin="78,1,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+       
+        <Label x:Name="label_lastName" Content="Last Name" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="97" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txt_lastName" HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Grid.Column="1" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+       
+        <Label x:Name="label_email" Content="Email" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="10,75,0,0" Grid.Row="5" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold" Grid.RowSpan="2"/>
+        <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="24" Margin="10,5,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Grid.Column="3" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+       
+        <Label x:Name="label_phone" Content="Phone" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="10,74,0,0" Grid.Row="5" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txt_phone" HorizontalAlignment="Left" Height="24" Margin="10,1,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Grid.Column="2" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+       
+        <Label x:Name="label_userName" Content="User Name" HorizontalAlignment="Left" Height="24" Margin="78,35,0,0" Grid.Row="6" VerticalAlignment="Top" Width="99" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txt_userName" HorizontalAlignment="Left" Height="24" Margin="78,64,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+       
+        <Label x:Name="label_state" Content="State" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="10,35,0,0" Grid.Row="6" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txt_state" HorizontalAlignment="Left" Height="24" Margin="10,64,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Grid.Column="1" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
+       
+        <Label x:Name="label_place" Content="Place" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="10,40,0,0" Grid.Row="6" VerticalAlignment="Top" Width="77" Foreground="#FFBD93F9" FontFamily="Arial Black" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txt_place" HorizontalAlignment="Left" Height="24" Margin="10,64,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Grid.Column="2" Background="#FFF8F8F2" BorderBrush="{x:Null}" Foreground="#FFFF79C6" FontFamily="Arial"/>
 
 
     </Grid>
