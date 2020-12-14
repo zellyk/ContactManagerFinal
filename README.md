@@ -9,6 +9,5 @@ Importing and exporting to CSV features
 
 
 Project By:
-Lemire, Olivier
-Marcotte, Jonathan
-Nguyen, Manh Anh Tuan
+
+Olivier Lemire, Jonathan Marcotte and Manh Anh Tuan Nguyen
