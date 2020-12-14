@@ -40,5 +40,9 @@ namespace ContactManagerFinal
             this.state = state;
         }
 
+        public string ToString()
+        {
+            return this.firstname + "," + this.lastname + "," + this.phonenumber + "," + this.username + "," + this.email + "," + this.place + "," + this.state;
+        }
     }
 }

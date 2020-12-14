@@ -25,7 +25,7 @@ namespace ContactManagerFinal
         public List<Contact> getAll()
         {
             List<Contact> listContacts = new List<Contact>();
-            var query = "select * from People INNER JOIN Emails ON (People.Domainid = Emails.Domainid)";
+            var query = "select * from Contact";
             var con = new SqlConnection(@"data source=localhost\SQLEXPRESS;database = CONTACTS;Trusted_Connection=True");
             SqlCommand cm = new SqlCommand(query, con);
             con.Open();
@@ -38,7 +38,7 @@ namespace ContactManagerFinal
                     (string)sdr["Lastname"],
                     (string)sdr["Phonenumber"],
                     (string)sdr["Username"],
-                    (string)sdr["Name"],
+                    (string)sdr["Email"],
                     (string)sdr["Place"],
                     (string)sdr["State"]);
 
@@ -51,7 +51,7 @@ namespace ContactManagerFinal
         public Contact getOneById(int id)
         {
             Contact tempContact = new Contact();
-            var query = "select * from People INNER JOIN Emails ON (People.Domainid = Emails.Domainid) WHERE People.Id = @id";
+            var query = "select * from ContContactacts WHERE Contact.Id = @id";
             var con = new SqlConnection(@"data source=localhost\SQLEXPRESS;database = CONTACTS;Trusted_Connection=True");
             SqlCommand cm = new SqlCommand(query, con);
             cm.Parameters.AddWithValue("@id", id);
@@ -65,7 +65,7 @@ namespace ContactManagerFinal
                     (string)sdr["Lastname"],
                     (string)sdr["Phonenumber"],
                     (string)sdr["Username"],
-                    (string)sdr["Name"],
+                    (string)sdr["Email"],
                     (string)sdr["Place"],
                     (string)sdr["State"]);
             }
@@ -73,18 +73,18 @@ namespace ContactManagerFinal
             return tempContact;
         }
 
-        public void createOne(string fn, string ln, string pn, string usern, int domainId,string place, string state)
+        public void createOne(string fn, string ln, string pn, string usern, string email,string place, string state)
         {
-            var query = "INSERT INTO People" +
-                "(Firstname, Lastname, Phonenumber, Username, Domainid, Place, State) " +
-                "VALUES(@fn, @ln, @pn, @usern, @domainid, @place, @state)";
+            var query = "INSERT INTO Contact" +
+                "(Firstname, Lastname, Phonenumber, Username, Email, Place, State) " +
+                "VALUES(@fn, @ln, @pn, @usern, @email, @place, @state)";
             var con = new SqlConnection(@"data source=localhost\SQLEXPRESS;database = CONTACTS;Trusted_Connection=True");
             SqlCommand cm = new SqlCommand(query, con);
             cm.Parameters.AddWithValue("@fn", fn);
             cm.Parameters.AddWithValue("@ln", ln);
             cm.Parameters.AddWithValue("@pn", pn);
             cm.Parameters.AddWithValue("@usern", usern);
-            cm.Parameters.AddWithValue("@domainid", domainId);
+            cm.Parameters.AddWithValue("@email", email);
             cm.Parameters.AddWithValue("@place", place);
             cm.Parameters.AddWithValue("@state", state);
 
@@ -100,12 +100,12 @@ namespace ContactManagerFinal
             finally
             {
                 con.Close();
-            }
+            } 
         }
 
-        public void updateOne(int id, string fn, string ln, string pn, string usern, int domainId, string place, string state)
+        public void updateOne(int id, string fn, string ln, string pn, string usern, string email, string place, string state)
         {
-            var query = "UPDATE People SET Firstname = @fn, Lastname = @ln, Phonenumber = @pn, Username = @usern, Domainid = @domainid, Place = @place, State = @state  WHERE Id = @id";
+            var query = "UPDATE Contact SET Firstname = @fn, Lastname = @ln, Phonenumber = @pn, Username = @usern, Email = @email, Place = @place, State = @state  WHERE Id = @id";
             var con = new SqlConnection(@"data source=localhost\SQLEXPRESS;database = CONTACTS;Trusted_Connection=True");
             SqlCommand cm = new SqlCommand(query, con);
             cm.Parameters.AddWithValue("@id", id);
@@ -113,7 +113,7 @@ namespace ContactManagerFinal
             cm.Parameters.AddWithValue("@ln", ln);
             cm.Parameters.AddWithValue("@pn", pn);
             cm.Parameters.AddWithValue("@usern", usern);
-            cm.Parameters.AddWithValue("@domainid", domainId);
+            cm.Parameters.AddWithValue("@email", email);
             cm.Parameters.AddWithValue("@place", place);
             cm.Parameters.AddWithValue("@state", state);
 
@@ -134,7 +134,7 @@ namespace ContactManagerFinal
 
         public void deleteOne(int id)
         {
-            var query = "DELETE FROM People WHERE Id = @id";
+            var query = "DELETE FROM Contact WHERE Id = @id";
             var con = new SqlConnection(@"data source=localhost\SQLEXPRESS;database = CONTACTS;Trusted_Connection=True");
             SqlCommand cm = new SqlCommand(query, con);
             cm.Parameters.AddWithValue("@id", id);
